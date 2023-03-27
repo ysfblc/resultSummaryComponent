@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Results summary component</title>
+
+  
+  <style>
+    @font-face {
+    font-family: 'font1';
+    font-style: normal;
+    font-weight: normal;
+    src: local('font1'), url("./assets/fonts/HankenGrotesk-VariableFont_wght.ttf") format('truetype');
+  }
+    .main-container{
+      width: 50%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      box-shadow: 1px 1px  20px gray;
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 150px;
+    }
+    .result{
+      width: 50%;
+      height: 100%;
+      background:linear-gradient(rgb(91, 109, 229),rgb(41, 41, 207));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      font-family: "font1";
+      color: aliceblue;
+    }
+    .result h3{
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
+    .circle{
+      background:linear-gradient(rgb(39, 39, 145), rgba(54, 54, 167,0.1));
+      width: 55%;
+      height: 200px;
+      border-radius: 50%;
+      text-align: center;
+      color: aliceblue;
+      font-size: 2rem;
+      font-family: "font1";
+      margin-top: 20px;
+    }
+    .circle h1{
+      margin: 1px 10px;
+      margin-top: 45px;
+    }
+    .circle h3{
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin: 1px;
+      opacity: 0.5;    
+    }
+    h2{
+      width: 60%;
+      color: aliceblue;
+      text-align: center;
+      font-family: "font1";
+      margin-bottom: 5px;
+    }
+    .text{
+      width: 60%;
+      color: aliceblue;
+      text-align: center;
+      font-family: "font1";
+      opacity: 0.6;
+      margin-bottom: 45px;
+    }
+    
+    .text p{
+      font-size: 1rem;
+    }
+    .summary-section{
+      display: flex;
+      flex-direction: column;
+      margin-left: 40px;
+      margin-top: 25px;
+      width: 40%;
+    }
+    .summary-section h1{
+      font-family:"font1";
+      font-size: x-large;
+    }
+    .summary-section .box{
+      width: 100%;
+      height: 14%;
+      margin-top: 5px;
+    }
+    #reaction{
+      display: flex;
+      align-items: center;
+      background-color: #fff6f5;
+      color: #f18082;
+      font-family: "font1";
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 10px;
+    }
+    #reaction img{
+      margin-left: 10px;      
+    }
+    #reaction span{
+      margin-left: 10px;
+    }
+    #reaction .percent{
+      margin-left: auto;
+      margin-right: 15px;
+      color: rgba(0,0,0,0.5);
+    }
+    #reaction .percent span{
+      color: black;
+      
+    }
+    #memory{
+      display: flex;
+      align-items: center;
+      font-family: "font1";
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      color: #e7c67e;
+      background-color: #f9f3e5;
+    }
+    #memory img{
+      margin-left: 10px;      
+    }
+    #memory span{
+      margin-left: 10px;
+    }
+    #memory .percent{
+      margin-left: auto;
+      margin-right: 15px;
+      color: rgba(0,0,0,0.5);
+    }
+    #memory .percent span{
+      color: black;
+
+    }
+    #verbal{
+      display: flex;
+      align-items: center;
+      font-family: "font1";
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      background-color: #f2fbfa;
+      color: #4eb49b;
+    }
+    #verbal img{
+      margin-left: 10px;      
+    }
+    #verbal span{
+      margin-left: 10px;
+    }
+    #verbal .percent{
+      margin-left: auto;
+      margin-right: 15px;
+      color: rgba(0,0,0,0.5);
+    }
+    #verbal .percent span{
+      color: black;
+
+    }
+    #visual{
+      display: flex;
+      align-items: center;
+      font-family: "font1";
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      color: #404992;
+      background-color: #f3f3fd;
+    }
+    #visual img{
+      margin-left: 10px;      
+    }
+    #visual span{
+      margin-left: 10px;
+    }
+    #visual .percent{
+      margin-left: auto;
+      margin-right: 15px;
+      color: rgba(0,0,0,0.5);
+    }
+    #visual .percent span{
+      color: black;
+
+    }
+    .cont-btn{
+      height: 50px;
+      margin-top: 30px;
+      border-radius: 50px;
+      background:linear-gradient( #5d3efb , #4132ef) ;
+      border : 2px solid #7a62de;
+      cursor: grab;
+      color: aliceblue;
+      font-family: "font1";
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+<div class="main-container">
+  <div class="result-section">
+    
+  </div>
+  <div class="result">
+    <h3>Your Result</h3>
+    <div class="circle">
+      <h1>76</h1>
+      <h3>of 100</h3>
+    </div>
+    <h2>Great</h2>
+    <div class="text">
+      <p>
+        You scored higher than 65% of the people
+        who have taken these test.
+      </p>
+    </div>
+  </div>
+
+  <div class="summary-section">
+    <h1>Summary</h1>
+    <div class="box"id="reaction"><img src="./assets/images/icon-reaction.svg" alt=""><span>Reaction</span> <div class="percent"><span>80</span> /100</div> </div>
+    <div class="box"id="memory"><img src="./assets/images/icon-memory.svg" alt=""><span>Memory</span> <div class="percent"><span>92</span> /100</div> </div>
+    <div class="box"id="verbal"><img src="./assets/images/icon-verbal.svg" alt=""><span>Verbal</span> <div class="percent"><span>61</span> /100</div> </div>
+    <div class="box"id="visual"><img src="./assets/images/icon-visual.svg" alt=""><span>Visual</span> <div class="percent"><span>72</span> /100</div></div>
+    <button class="cont-btn">Continue</button>
+  </div>
+</div>
+</body>
+</html>
